@@ -79,7 +79,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'django_restaurant',
-        'USER': 'nik',
+        'USER': 'restorator',
         'PASSWORD': '123456789',
     }
 }
