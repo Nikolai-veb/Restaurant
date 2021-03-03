@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+ <head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+   <meta name="description" content="Babette">
+   <link href="{% static "images/favicon/favicon.png" %}" rel="icon">
+   <title>{% block title %}PARADISE_OF_MEAT{% endblock %}</title>
+   <link rel="stylesheet"
+     href="https://fonts.googleapis.com/css?family=Rubik:400,500,700%7cShadows+Into+Light&display=swap">
+   <link rel="stylesheet" href="{% static "css/libraries.css"%}"/>
+     <!-- <link rel="stylesheet" href="assets/css/animate.css" /> -->
+    <link rel="stylesheet" href="{% static "css/style.css"%}" />
+ </head>
+
+<body>
+   <div class="wrapper">
+
+       <!-- =========================
+               Header
+              =========================== -->
+       <header id="header" class="header header-transparent header-layout1">
+           {% include "include/header.html" %}
+       </header>
+
+       {% block content %}
+
+       {% endblock %}
+
+        <!-- ========================
+       Footer
+     ========================== -->
+     <footer id="footer" class="footer footer-layout1 text-center bg-dark">
+         {% include "include/footer.html" %}
+     </footer><!-- /.Footer -->
+        <button id="scrollTopBtn"><i class="fa fa-angle-up"></i></button>
+        <div class="search-popup">
+▸          <i class="fa fa-times close-search"></i>
+▾           <form class="module__search-form">
+                <input type="text" class="search__input" placeholder="Type Words Then Enter">
+                <button class="module__search-btn"><i class="fa fa-search"></i></button>
+            </form>
+       </div><!-- /.search-popup -->
+   </div>
+<!-- /.wrapper -->
+   <script src="{% static "js/jquery-3.3.1.min.js" %}"></script>
+   <script src="{% static "js/plugins.js" %}"></script>
+   <script src="{% static "js/main.js" %}"></script>
+</body>

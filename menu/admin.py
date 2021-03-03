@@ -2,6 +2,7 @@ from django.contrib import admin
 
 from .models import Categories, Status, Products
 
+
 @admin.register(Categories)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ("id", "name", "slug")
@@ -22,7 +23,7 @@ class StatusAdmin(admin.ModelAdmin):
 
 @admin.register(Products)
 class ProductsAdmin(admin.ModelAdmin):
-    list_display = ("id", "name", "get_image", "moderation", "price")
+    list_display = ("id", "name", "price", "moderation", "get_image")
     list_editable = ("moderation",)
     list_display_links = ("id", "name")
     list_filter = ("name", "description", "category", "status", "create", "price")
