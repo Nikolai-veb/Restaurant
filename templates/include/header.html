@@ -1,7 +1,7 @@
 {% load static %}
       <nav class="navbar navbar-expand-lg sticky-navbar">
         <div class="container">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="{% url "home" %}">
             <img src="{% static "images/logo/logo-light.png" %}" class="logo-light" alt="logo">
             <img src="{% static "images/logo/logo-dark.png" %}" class="logo-dark" alt="logo">
           </a>
@@ -11,17 +11,17 @@
           <div class="collapse navbar-collapse" id="mainNavigation">
             <ul class="navbar-nav ml-auto">
               <li class="nav__item with-dropdown">
-                <a href="#" data-toggle="dropdown" class="dropdown-toggle nav__item-link active">Home</a>
-                <ul class="dropdown-menu">
-                  <li class="nav__item"><a href="index.html" class="nav__item-link">Home Main</a></li>
-                  <!-- /.nav-item -->
-                  <li class="nav__item"><a href="home-gourmet.html" class="nav__item-link">Home Gourmet</a></li>
-                  <!-- /.nav-item -->
-                  <li class="nav__item"><a href="home-classic.html" class="nav__item-link">Home Classic</a></li>
-                  <!-- /.nav-item -->
-                  <li class="nav__item"><a href="home-cafe.html" class="nav__item-link">Home Cafe</a></li>
-                  <!-- /.nav-item -->
-                </ul><!-- /.dropdown-menu -->
+                <a href="{% url 'home' %}" class="nav__item-link">Home</a>
+<!--                <ul class="dropdown-menu">-->
+<!--                  <li class="nav__item"><a href="index.html" class="nav__item-link">Home Main</a></li>-->
+<!--                  &lt;!&ndash; /.nav-item &ndash;&gt;-->
+<!--                  <li class="nav__item"><a href="home-gourmet.html" class="nav__item-link">Home Gourmet</a></li>-->
+<!--                  &lt;!&ndash; /.nav-item &ndash;&gt;-->
+<!--                  <li class="nav__item"><a href="home-classic.html" class="nav__item-link">Home Classic</a></li>-->
+<!--                  &lt;!&ndash; /.nav-item &ndash;&gt;-->
+<!--                  <li class="nav__item"><a href="home-cafe.html" class="nav__item-link">Home Cafe</a></li>-->
+<!--                  &lt;!&ndash; /.nav-item &ndash;&gt;-->
+<!--                </ul>&lt;!&ndash; /.dropdown-menu &ndash;&gt;-->
               </li><!-- /.nav-item -->
               <li class="nav__item with-dropdown">
                 <a href="#" data-toggle="dropdown" class="dropdown-toggle nav__item-link">About</a>
@@ -42,17 +42,17 @@
                 </ul><!-- /.dropdown-menu -->
               </li><!-- /.nav-item -->
               <li class="nav__item with-dropdown">
-                <a href="#" data-toggle="dropdown" class="dropdown-toggle nav__item-link">Menu</a>
-                <ul class="dropdown-menu">
-                  <li class="nav__item"><a href="menu-classic.html" class="nav__item-link">Menu Classic</a></li>
-                  <!-- /.nav-item -->
-                  <li class="nav__item"><a href="menu-mixed.html" class="nav__item-link">Menu Mixed</a></li>
-                  <!-- /.nav-item -->
-                  <li class="nav__item"><a href="menu-board.html" class="nav__item-link">Menu Board</a></li>
-                  <!-- /.nav-item -->
-                  <li class="nav__item"><a href="menu-gallery.html" class="nav__item-link">Menu Gallery</a></li>
-                  <!-- /.nav-item -->
-                </ul><!-- /.dropdown-menu -->
+                <a href="{% url 'list_menu' %}" class="nav__item-link">Menu</a>
+<!--                <ul class="dropdown-menu">-->
+<!--                  <li class="nav__item"><a href="menu-classic.html" class="nav__item-link">Menu Classic</a></li>-->
+<!--                  &lt;!&ndash; /.nav-item &ndash;&gt;-->
+<!--                  <li class="nav__item"><a href="menu-mixed.html" class="nav__item-link">Menu Mixed</a></li>-->
+<!--                  &lt;!&ndash; /.nav-item &ndash;&gt;-->
+<!--                  <li class="nav__item"><a href="menu-board.html" class="nav__item-link">Menu Board</a></li>-->
+<!--                  &lt;!&ndash; /.nav-item &ndash;&gt;-->
+<!--                  <li class="nav__item"><a href="menu-gallery.html" class="nav__item-link">Menu Gallery</a></li>-->
+<!--                  &lt;!&ndash; /.nav-item &ndash;&gt;-->
+<!--                </ul>&lt;!&ndash; /.dropdown-menu &ndash;&gt;-->
               </li><!-- /.nav-item -->
               <li class="nav__item with-dropdown">
                 <a href="#" data-toggle="dropdown" class="dropdown-toggle nav__item-link">Gallery</a>

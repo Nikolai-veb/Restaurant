@@ -18,7 +18,7 @@
           </div><!-- /.container -->
         </div><!-- /.slide-item -->
         <div class="slide-item align-v-h text-center bg-overlay bg-overlay-2">
-          <div class="bg-img"><img src="assets/images/backgrounds/8.jpg" alt="slide img"></div>
+          <div class="bg-img"><img src="{% static "images/backgrounds/8.jpg" %}" alt="slide img"></div>
           <div class="container">
             <div class="row">
               <div class="col-sm-12 col-md-12 col-lg-12">
@@ -26,7 +26,7 @@
                   <span class="slide__subtitle">Fresh Ingredient, Tasty Meals</span>
                   <h2 class="slide__title">Awesome Recipes By <br> The Most Talented Chefs!</h2>
                   <p class="slide__desc">We have awesome recipes and the most talented chefs in town!</p>
-                  <a href="reservation.html" class="btn btn__primary mx-2 my-1">Discover Our Menu</a>
+                  <a href="{% url "list_menu" %}" class="btn btn__primary mx-2 my-1">Discover Our Menu</a>
                   <a href="menu-classic.html" class="btn btn__white mx-2 my-1">Book A Table</a>
                 </div><!-- /.slide-content -->
               </div><!-- /.col-lg-12 -->
