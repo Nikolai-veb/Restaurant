@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'menu.apps.MenuConfig',
     'gallery.apps.GalleryConfig',
+    'blog.apps.BlogConfig',
 ]
 
 MIDDLEWARE = [
