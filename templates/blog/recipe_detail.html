@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Blog
+{% endblock %}
+
+
+{% block content %}
+    <!-- ========================
+       page title 
+    =========================== -->
+    <section id="page-title" class="page-title page-title-layout2 text-center bg-overlay bg-overlay-2 bg-parallax">
+      <div class="bg-img"><img src="{% static "images/backgrounds/9.jpg" %}" alt="background"></div>
+      <svg class="pagetitle__divider-shape" xmlns="http://www.w3.org/2000/svg" width="22" height="61"
+        viewBox="0 0 22 61">
+        <path
+          d="M799,769h2v61h-2V769Zm8,24.8a0.969,0.969,0,0,0-1.911,0,3.012,3.012,0,0,1-.883,2.16,4.486,4.486,0,0,0,0,6.136,3.083,3.083,0,0,1,0,4.32,4.486,4.486,0,0,0,0,6.136,3.088,3.088,0,0,1,0,4.325,4.5,4.5,0,0,0,0,6.142,3.014,3.014,0,0,1,.884,2.163,0.969,0.969,0,0,0,1.911,0,4.414,4.414,0,0,0-1.213-3.07,3.091,3.091,0,0,1,0-4.328,4.491,4.491,0,0,0,0-6.14,3.08,3.08,0,0,1,0-4.319,4.488,4.488,0,0,0,0-6.137,3.081,3.081,0,0,1,0-4.32A4.407,4.407,0,0,0,807,793.8Zm0-20a0.969,0.969,0,0,0-1.911,0,3.014,3.014,0,0,1-.883,2.16,4.486,4.486,0,0,0,0,6.136,3.083,3.083,0,0,1,0,4.32,4.488,4.488,0,0,0,0,6.137,3.087,3.087,0,0,1,0,4.324,4.5,4.5,0,0,0,0,6.142,3.014,3.014,0,0,1,.884,2.163,0.969,0.969,0,0,0,1.911,0,4.414,4.414,0,0,0-1.213-3.07,3.089,3.089,0,0,1,0-4.327,4.491,4.491,0,0,0,0-6.14,3.081,3.081,0,0,1,0-4.32,4.488,4.488,0,0,0,0-6.137,3.081,3.081,0,0,1,0-4.32A4.409,4.409,0,0,0,807,773.8ZM793,793.8a0.969,0.969,0,0,1,1.911,0,3.012,3.012,0,0,0,.883,2.16,4.486,4.486,0,0,1,0,6.136,3.083,3.083,0,0,0,0,4.32,4.486,4.486,0,0,1,0,6.136,3.088,3.088,0,0,0,0,4.325,4.5,4.5,0,0,1,0,6.142,3.014,3.014,0,0,0-.884,2.163,0.969,0.969,0,0,1-1.911,0,4.414,4.414,0,0,1,1.213-3.07,3.091,3.091,0,0,0,0-4.328,4.491,4.491,0,0,1,0-6.14,3.08,3.08,0,0,0,0-4.319,4.488,4.488,0,0,1,0-6.137,3.081,3.081,0,0,0,0-4.32A4.407,4.407,0,0,1,793,793.8Zm0-20a0.969,0.969,0,0,1,1.911,0,3.014,3.014,0,0,0,.883,2.16,4.486,4.486,0,0,1,0,6.136,3.083,3.083,0,0,0,0,4.32,4.488,4.488,0,0,1,0,6.137,3.087,3.087,0,0,0,0,4.324,4.5,4.5,0,0,1,0,6.142,3.014,3.014,0,0,0-.884,2.163,0.969,0.969,0,0,1-1.911,0,4.414,4.414,0,0,1,1.213-3.07,3.089,3.089,0,0,0,0-4.327,4.491,4.491,0,0,1,0-6.14,3.081,3.081,0,0,0,0-4.32,4.488,4.488,0,0,1,0-6.137,3.081,3.081,0,0,0,0-4.32A4.409,4.409,0,0,1,793,773.8Zm-4,5.2h2v41h-2V779Zm20,0h2v41h-2V779Z"
+          transform="translate(-789 -769)"></path>
+      </svg>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-10 offset-lg-1">
+            <span class="pagetitle__subheading">{{ recipe.create|date:'M d, Y' }}</span>
+            <h1 class="pagetitle__heading">{{recipe.title}}</h1>
+          </div><!-- /.col-lg-10 -->
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </section><!-- /.page-title -->
+
+    <!-- ======================
+      Blog Single
+    ========================= -->
+    <section id="blogSingleRightSidebar" class="blog blog-single pb-50">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-8">
+            <div class="post-item">
+              <div class="post__content">
+                <div class="post__desc">
+
+                  <div class="post__img">
+                    <a href="#">
+                      <img src="{{ recipe.image.url }}" alt="post image">
+                    </a>
+                  </div><!-- /.post-img -->
+                  <p>{{recipe.text}}</p>
+                </div><!-- /.post-desc -->
+              </div><!-- /.post-content -->
+            </div><!-- /.post-item -->
+            <div class="widget-tags mb-40">
+              <ul class="list-unstyled">
+                  {% for tag in recipe.tags.all %}
+                <li><a href="{% url "tag_recipe_list" tag.slug %}">{{tag.name}}</a></li>
+              {% endfor %}
+              </ul>
+            </div>
+<!--            <div class="blog-share mb-40">-->
+<!--              <h5 class="post__share-title">Share:</h5>-->
+<!--              <ul class="social__icons">-->
+<!--                <li><a href="#"><i class="fa fa-facebook"></i></a></li>-->
+<!--                <li><a href="#"><i class="fa fa-twitter"></i></a></li>-->
+<!--                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>-->
+<!--                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>-->
+<!--              </ul>-->
+<!--            </div>&lt;!&ndash; /.post-share &ndash;&gt;-->
+
+<!--            <div class="blog-widget blog-author">-->
+<!--              <div class="blog__author-avatar">-->
+<!--                <img src="assets/images/blog/author/1.jpg" alt="avatar">-->
+<!--              </div>&lt;!&ndash; /.author-avatar  &ndash;&gt;-->
+<!--              <div class="blog__author-content">-->
+<!--                <p class="blog__author-bio">Welcome, an award-winning digital marketing agency based in New York.-->
+<!--                  Founded by Begha over many cups of tea at her kitchen table in 2009, our brand promise is winning-->
+<!--                  digital marketing agency based in New York. </p>-->
+<!--                <ul class="social__icons">-->
+<!--                  <li><a href="#"><i class="fa fa-facebook"></i></a></li>-->
+<!--                  <li><a href="#"><i class="fa fa-twitter"></i></a></li>-->
+<!--                  <li><a href="#"><i class="fa fa-pintrest"></i></a></li>-->
+<!--                </ul>-->
+<!--              </div>&lt;!&ndash; /.author-content  &ndash;&gt;-->
+<!--            </div>&lt;!&ndash; /.post-author  &ndash;&gt;-->
+
+            <div class="blog-widget blog-comments">
+              <h5 class="blog__widget-title">comments</h5>
+              <ul class="comments-list list-unstyled mb-0">
+                  {% for comment in recipe.comment.all %}
+                <li class="comment__item">
+                  <div class="comment__avatar">
+                    <img src="{% static "images/blog/author/2.jpg" %}" alt="avatar">
+                  </div>
+                  <div class="comment__content">
+                    <h6 class="comment__author">{{ comment.author }}</h6>
+                    <span class="comment__date">{{ comment.create|date:'M d, Y a' }}</span>
+                    <p class="comment__desc">{{comment.text}}</p>
+                    <a class="comment__reply" href="#formComment" onclick="AddComment('{{ comment.author }}', '{{ comment.id }}')">reply</a>
+                  </div>
+                </li><!-- /.comment -->
+              {% endfor %}
+
+
+              </ul><!-- /.comments-list -->
+            </div><!-- /.post-comments -->
+
+            <div class="blog-widget blog-comments-form">
+              <h5 class="blog__widget-title">Leave A Reply</h5>
+
+              <form action="{% url 'add_comment' recipe.id %}" method="post" id="formComment">
+                {% csrf_token %}
+
+                <input type="hidden" name="parent" id="contactparent" value="">
+                <div class="row">
+<!--                  <div class="col-sm-12 col-md-4 col-lg-4">-->
+<!--                    <div class="form-group">-->
+<!--                      <input type="text" class="form-control" placeholder="First Name:">-->
+<!--                    </div>&lt;!&ndash; /.form-group &ndash;&gt;-->
+<!--                  </div>&lt;!&ndash; /.col-lg-6 &ndash;&gt;-->
+                  <div class="col-sm-12 col-md-4 col-lg-4">
+                    <div class="form-group">
+                      <label for="contactusername" class="editContent">
+                        Name *
+                      </label>
+                        {{ form.name }}
+                    </div><!-- /.form-group -->
+                  </div><!-- /.col-lg-6 -->
+                  <div class="col-sm-12 col-md-4 col-lg-4">
+                    <div class="form-group">
+                      <label for="contactemail" class="editContent">
+                        Email *
+                      </label>
+                        {{ form.email }}
+                    </div><!-- /.form-group -->
+                  </div><!-- /.col-lg-6 -->
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="form-group">
+                      <label for="contactcomment" class="editContent">
+                                Your comment *
+                      </label>
+                        {{ form.text }}
+                    </div><!-- /.form-group -->
+                  </div><!-- /.col-lg-12 -->
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                    <button type="submit" class="btn btn__primary btn__block">Submit Comment</button>
+                  </div><!-- /.col-lg-12 -->
+                </div><!-- /.row -->
+              </form>
+            </div><!-- /.post-comments-form -->
+          </div><!-- /.col-lg-8 -->
+          <div class="col-sm-12 col-md-12 col-lg-4">
+              {% include "include/side_bar.html" %}
+          </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </section><!-- /.blog Single -->
+
+
+  <script>
+        function AddComment(name, id) {
+            document.getElementById("contactparent").value = id;
+            document.getElementById("contactcomment").innerText = `${name}, `
+        }
+
+   </script>
+
+{% endblock %}

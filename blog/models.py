@@ -13,7 +13,7 @@ class Categories(models.Model):
         verbose_name_plural = 'Categories'
 
     def get_absolut_url(self):
-        return reverse("by_category", kwargs={'cat_slug': self.slug})
+        return reverse("category_recipe_list", kwargs={'cat_slug': self.slug})
 
     def __str__(self):
         return self.name
@@ -28,7 +28,7 @@ class Tags(models.Model):
         verbose_name_plural = 'Tags'
 
     def get_absolut_url(self):
-        return reverse("by_tag", kwargs={'tag_slug': self.slug})
+        return reverse("tag_recipe_list", kwargs={'tag_slug': self.slug})
 
     def __str__(self):
         return self.name
@@ -40,7 +40,8 @@ class Recipes(models.Model):
     image = models.ImageField('Image', upload_to='recipes_images/%Y/%m/%d', blank=True, null=True)
     text = models.TextField()
     category = models.ForeignKey(Categories, verbose_name='Category', on_delete=models.PROTECT, related_name='recipe')
-    tags = models.ManyToManyField(Tags, verbose_name='Tags', related_name='tags')
+    tags = models.ManyToManyField(Tags, verbose_name='Tags', related_name='recipe')
+    moderation = models.BooleanField("Moderation", default=False)
     slug = models.SlugField('URL', max_length=250, unique=True, db_index=True)
     create = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)
@@ -48,9 +49,10 @@ class Recipes(models.Model):
     class Meta:
         verbose_name = 'Recipe'
         verbose_name_plural = 'Recipes'
+        ordering = ['-create']
 
-    def get_absolut_url(self):
-        return reverse("recipe_single", kwargs={'rec_slug': self.slug})
+    def get_absolute_url(self):
+        return reverse("recipe_detail", kwargs={'rec_slug': self.slug})
 
     def __str__(self):
         return self.title
@@ -64,3 +66,21 @@ class Recipes(models.Model):
 
     get_image.short_description = "Image"
     get_image.allow_tags = True
+
+
+class Comments(models.Model):
+    email = models.EmailField()
+    name = models.CharField('Name', max_length=250)
+    text = models.TextField()
+    recipe = models.ForeignKey(Recipes, verbose_name='Recipe', on_delete=models.PROTECT, related_name='comments')
+    parent = models.ForeignKey('self', verbose_name='Parent', on_delete=models.CASCADE, null=True, blank=True)
+    moderation = models.BooleanField('Moderation', default=True)
+    create = models.DateTimeField(auto_now_add=True)
+    update = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Comment'
+        verbose_name_plural = 'Comments'
+
+    def __str__(self):
+        return f'{self.name} - {self.parent}'
