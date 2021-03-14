@@ -83,7 +83,7 @@ Blog
             <div class="blog-widget blog-comments">
               <h5 class="blog__widget-title">comments</h5>
               <ul class="comments-list list-unstyled mb-0">
-                  {% for comment in recipe.comment.all %}
+                  {% for comment in recipe.comments.all %}
                 <li class="comment__item">
                   <div class="comment__avatar">
                     <img src="{% static "images/blog/author/2.jpg" %}" alt="avatar">

@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import redirect
 from django.views.generic import ListView, DetailView
 from django.views.generic.base import View
 
@@ -15,18 +15,18 @@ class RecipeListView(ListView):
     def get_queryset(self):
         cat_slug = 'cat_slug'
         tag_slug = 'tag_slug'
-        queryset = Recipes.objects.filter(moderation=True)
+        queryset = Recipes.manager.select_related("category")
         if cat_slug in self.kwargs:
-            queryset = Recipes.objects.filter(moderation=True).filter(category__slug=self.kwargs['cat_slug'])
+            queryset = Recipes.manager.filter(category__slug=self.kwargs['cat_slug'])
         elif tag_slug in self.kwargs:
-            queryset = Recipes.objects.filter(moderation=True).filter(tags__slug=self.kwargs['tag_slug'])
+            queryset = Recipes.manager.filter(tags__slug=self.kwargs['tag_slug'])
         return queryset
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['categories'] = Categories.objects.all()
         context['tags'] = Tags.objects.all()
-        context['recent_recipe'] = Recipes.objects.order_by('-create')[:2]
+        context['recent_recipe'] = Recipes.objects.filter(moderation=True)[:2]
         return context
 
 
@@ -40,7 +40,7 @@ class RecipeDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['categories'] = Categories.objects.all()
         context['tags'] = Tags.objects.all()
-        context['recent_recipe'] = Recipes.objects.order_by('-create')[:2]
+        context['recent_recipe'] = Recipes.objects.filter(moderation=True)[:2]
         context['form'] = CommentsForm()
         return context
 

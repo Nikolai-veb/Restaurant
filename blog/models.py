@@ -4,6 +4,10 @@ from django.urls import reverse
 from django.utils.safestring import mark_safe
 
 
+class MyManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(moderation=True)
+
 class Categories(models.Model):
     name = models.CharField("Category", max_length=250)
     slug = models.SlugField("URL", max_length=250, unique=True, db_index=True)
@@ -45,6 +49,8 @@ class Recipes(models.Model):
     slug = models.SlugField('URL', max_length=250, unique=True, db_index=True)
     create = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)
+    objects = models.Manager()
+    manager = MyManager()
 
     class Meta:
         verbose_name = 'Recipe'
