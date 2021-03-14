@@ -8,6 +8,7 @@ class MyManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(moderation=True)
 
+
 class Categories(models.Model):
     name = models.CharField("Category", max_length=250)
     slug = models.SlugField("URL", max_length=250, unique=True, db_index=True)
