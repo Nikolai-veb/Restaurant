@@ -108,10 +108,10 @@ Cart
                     <td colspan="4">
                       <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-12 cart__product-action-content">
-                          <form class="d-flex flex-wrap">
-                            <input type="text" class="form-control mb-10 mr-10" placeholder="Coupon Code">
-                            <button type="submit" class="btn btn__primary mb-10">Apply
-                              Coupon</button>
+                          <form class="d-flex flex-wrap" action="{% url "apply_coupon" %}" method="post">
+                            {% csrf_token %}
+                              {{ coupon_apply_form.code }}
+                               <button type="submit" class="btn btn__primary mb-10">Apply Coupon</button>
                           </form>
                           <div>
 <!--                            <a class="btn btn__secondary mr-10" href="#">update cart</a>-->

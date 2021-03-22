@@ -26,6 +26,7 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     path('shop/', include('shop.urls')),
     path('cart/', include('cart.urls')),
+    path('coupons/', include('coupons.urls')),
 ]
 
 if settings.DEBUG:
