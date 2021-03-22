@@ -15,7 +15,7 @@ class RecipeListView(ListView):
     def get_queryset(self):
         cat_slug = 'cat_slug'
         tag_slug = 'tag_slug'
-        queryset = Recipes.manager.select_related("category")
+        queryset = Recipes.manager.prefetch_related("tags")
         if cat_slug in self.kwargs:
             queryset = Recipes.manager.filter(category__slug=self.kwargs['cat_slug'])
         elif tag_slug in self.kwargs:
@@ -35,6 +35,10 @@ class RecipeDetailView(DetailView):
     context_object_name = 'recipe'
     template_name = 'blog/recipe_detail.html'
     slug_url_kwarg = 'rec_slug'
+
+    def get_queryset(self):
+        queryset = Recipes.manager.filter(slug=self.kwargs['rec_slug']).select_related('category')
+        return queryset
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)

@@ -10,19 +10,11 @@
           </button>
           <div class="collapse navbar-collapse" id="mainNavigation">
             <ul class="navbar-nav ml-auto">
+
               <li class="nav__item with-dropdown">
                 <a href="{% url 'home' %}" class="nav__item-link">Home</a>
-<!--                <ul class="dropdown-menu">-->
-<!--                  <li class="nav__item"><a href="index.html" class="nav__item-link">Home Main</a></li>-->
-<!--                  &lt;!&ndash; /.nav-item &ndash;&gt;-->
-<!--                  <li class="nav__item"><a href="home-gourmet.html" class="nav__item-link">Home Gourmet</a></li>-->
-<!--                  &lt;!&ndash; /.nav-item &ndash;&gt;-->
-<!--                  <li class="nav__item"><a href="home-classic.html" class="nav__item-link">Home Classic</a></li>-->
-<!--                  &lt;!&ndash; /.nav-item &ndash;&gt;-->
-<!--                  <li class="nav__item"><a href="home-cafe.html" class="nav__item-link">Home Cafe</a></li>-->
-<!--                  &lt;!&ndash; /.nav-item &ndash;&gt;-->
-<!--                </ul>&lt;!&ndash; /.dropdown-menu &ndash;&gt;-->
               </li><!-- /.nav-item -->
+
               <li class="nav__item with-dropdown">
                 <a href="#" data-toggle="dropdown" class="dropdown-toggle nav__item-link">About</a>
                 <ul class="dropdown-menu">
@@ -41,75 +33,69 @@
                   <li class="nav__item"><a href="faqs.html" class="nav__item-link">FAQs</a></li> <!-- /.nav-item -->
                 </ul><!-- /.dropdown-menu -->
               </li><!-- /.nav-item -->
+
               <li class="nav__item with-dropdown">
                 <a href="{% url 'list_menu' %}" class="nav__item-link">Menu</a>
-<!--                <ul class="dropdown-menu">-->
-<!--                  <li class="nav__item"><a href="menu-classic.html" class="nav__item-link">Menu Classic</a></li>-->
-<!--                  &lt;!&ndash; /.nav-item &ndash;&gt;-->
-<!--                  <li class="nav__item"><a href="menu-mixed.html" class="nav__item-link">Menu Mixed</a></li>-->
-<!--                  &lt;!&ndash; /.nav-item &ndash;&gt;-->
-<!--                  <li class="nav__item"><a href="menu-board.html" class="nav__item-link">Menu Board</a></li>-->
-<!--                  &lt;!&ndash; /.nav-item &ndash;&gt;-->
-<!--                  <li class="nav__item"><a href="menu-gallery.html" class="nav__item-link">Menu Gallery</a></li>-->
-<!--                  &lt;!&ndash; /.nav-item &ndash;&gt;-->
-<!--                </ul>&lt;!&ndash; /.dropdown-menu &ndash;&gt;-->
               </li><!-- /.nav-item -->
-              <li class="nav__item with-dropdown">
-                <a href="{% url "list_gallery" %}"  class="dropdown-toggle nav__item-link">Gallery</a>
-<!--                <ul class="dropdown-menu">-->
-<!--                  <li class="nav__item"><a href="gallery-grid.html" class="nav__item-link">Gallery grid</a></li>-->
-<!--                  &lt;!&ndash; /.nav-item &ndash;&gt;-->
-<!--                  <li class="nav__item"><a href="gallery-fullwidth.html" class="nav__item-link">Gallery Fullwidth</a>-->
-<!--                  </li>&lt;!&ndash; /.nav-item &ndash;&gt;-->
-<!--                </ul>&lt;!&ndash; /.dropdown-menu &ndash;&gt;-->
-              </li><!-- /.nav-item -->
+
               <li class="nav__item with-dropdown">
                 <a href="{% url "recipe_list" %}"  class="dropdown-toggle nav__item-link">Blog</a>
-<!--                <ul class="dropdown-menu">-->
-<!--                  <li class="nav__item"><a href="blog-carousel.html" class="nav__item-link">blog carousel</a></li>-->
-<!--                  <li class="nav__item dropdown-submenu">-->
-<!--                    <a href="#" data-toggle="dropdown" class="dropdown-toggle nav__item-link">Blog Grid</a>-->
-<!--                    <ul class="dropdown-menu">-->
-<!--                      <li class="nav__item">-->
-<!--                        <a href="blog-grid-sidebar.html" class="nav__item-link">Grid Sidebar</a>-->
-<!--                      </li>&lt;!&ndash; /.nav-item &ndash;&gt;-->
-<!--                      <li class="nav__item">-->
-<!--                        <a href="blog-grid.html" class="nav__item-link">No Sidebar</a>-->
-<!--                      </li>&lt;!&ndash; /.nav-item &ndash;&gt;-->
-<!--                    </ul>&lt;!&ndash; /.dropdown-menu &ndash;&gt;-->
-<!--                  </li>&lt;!&ndash; /.nav-item &ndash;&gt;-->
-<!--                  <li class="nav__item"><a href="blog-standard.html" class="nav__item-link">blog standard</a></li>-->
-<!--                  &lt;!&ndash; /.nav-item &ndash;&gt;-->
-<!--                  <li class="nav__item"><a href="blog-single-post.html" class="nav__item-link">single post</a></li>-->
-<!--                  &lt;!&ndash; /.nav-item &ndash;&gt;-->
-<!--                </ul>&lt;!&ndash; /.dropdown-menu &ndash;&gt;-->
               </li><!-- /.nav-item -->
+
               <li class="nav__item with-dropdown">
-                <a href="#" data-toggle="dropdown" class="dropdown-toggle nav__item-link">Shop</a>
-                <ul class="dropdown-menu">
-                  <li class="nav__item"><a href="shop.html" class="nav__item-link">our Shop</a></li>
-                  <!-- /.nav-item -->
-                  <li class="nav__item"><a href="shop-sidebar.html" class="nav__item-link">Shop with Sidebar</a></li>
-                  <!-- /.nav-item -->
-                  <li class="nav__item"><a href="shop-single-product.html" class="nav__item-link">Single Product</a>
-                  </li><!-- /.nav-item -->
-                  <li class="nav__item"><a href="shopping-cart.html" class="nav__item-link">cart</a></li>
-                  <!-- /.nav-item -->
-                </ul><!-- /.dropdown-menu -->
+                <a href="{% url "product_list" %}"  class="dropdown-toggle nav__item-link">Shop</a>
               </li><!-- /.nav-item -->
               <!-- /.nav-item -->
             </ul><!-- /.navbar-nav -->
           </div><!-- /.navbar-collapse -->
+
           <div class="navbar-actions-wrap">
             <div class="navbar-actions d-flex align-items-center">
-              <a href="#" class="navbar__action-btn search-popup-trigger"><i class="fa fa-search"></i></a>
-              <a href="reservation.html"
-                class="navbar__action-btn navbar__action-btn-reserve btn btn__primary">Reservation</a>
-              <ul class="social__icons">
-                <li><a href="#"><i class="fa fa-tripadvisor"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              </ul><!-- /.social__icons -->
-            </div><!-- /.navbar-actions -->
-          </div><!-- /.navbar-actions-wrap -->
+               <a href="#" class="navbar__action-btn search-popup-trigger"><i class="fa fa-search"></i></a>
+               <a href="reservation.html"
+                 class="navbar__action-btn navbar__action-btn-reserve btn btn__primary">Reservation</a>
+               <a href="#" class="navbar__action-btn navbar__action-btn-cart">
+                 <i class="icon-cart"></i><span class="cart__label">{{cart.inter|length}}</span>
+               </a>
+               <div class="cart-popup">
+                 <ul class="list-unstyled">
+
+                    {% for item in cart_little %}
+                   {% with  product=item.product %}
+                   <li class="cart-item">
+                        <div class="cart__item-img"><img src="{{ product.image.url }}" alt="thumb"></div>
+                     <div class="cart__item-content">
+                       <a href="{% url "product_detail" product.slug %}">
+                          <h6 class="cart__item-title">{{ product.name }}</h6>
+                       </a>
+                       <div class="cart__item-detail">$ {{ product.price }}</div>
+                       <a href="{% url "cart_remove" product.id %}">
+                          <i class="cart__item-delete">&times;</i>
+                       </a>
+                     </div><!-- /.cart-item-content -->
+                   </li><!-- /.cart-item -->
+                   {% endwith %}
+                 {% endfor %}
+<!--                   <li class="cart-item">-->
+<!--                     <div class="cart__item-img"><img src="assets/images/shop/thumbs/2.png" alt="thumb"></div>-->
+<!--                     <div class="cart__item-content">-->
+<!--                       <h6 class="cart__item-title">Roasted Steak Rou</h6>-->
+<!--                       <div class="cart__item-detail">$ 29.00</div>-->
+<!--                       <i class="cart__item-delete">&times;</i>-->
+<!--                     </div>&lt;!&ndash; /.cart-item-content &ndash;&gt;-->
+<!--                   </li>&lt;!&ndash; /.cart-item &ndash;&gt;-->
+                 </ul>
+                 <div class="cart-subtotal">
+                   <span>Subtotal:</span>
+                   <span class="color-theme">$ {{ cart.get_total_price|floatformat:"2"}}</span>
+                 </div><!-- /.cart-subtotal -->
+                 <div class="cart-action d-flex justify-content-between">
+                   <a href="{% url "cart_detail" %}" class="btn btn__primary btn__hover2">View Cart</a>
+                   <a href="#" class="btn btn__white">Checkout</a>
+                 </div><!-- /.cart-action -->
+               </div><!-- /.cart-popup -->
+             </div><!-- /.navbar-actions -->
+           </div><!-- /.navbar-actions-wrap -->
+
         </div><!-- /.container -->
       </nav><!-- /.navabr -->
