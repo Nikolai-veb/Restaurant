@@ -115,7 +115,7 @@ Cart
                           </form>
                           <div>
 <!--                            <a class="btn btn__secondary mr-10" href="#">update cart</a>-->
-                            <a class="btn btn__primary" href="#">Checkout</a>
+                            <a class="btn btn__primary" href="{% url "order_create" %}">Checkout</a>
                           </div>
                         </div><!-- /.col-lg-2  -->
                       </div><!-- /.row  -->
@@ -454,7 +454,19 @@ Cart
               <ul class="list-unstyled mb-0">
                 <li><span>Cart Subtotal :</span><span>$ {{ cart.get_total_price|floatformat:"2"}}</span></li>
                 <li><span>Shipping :</span><span>Free Shipping</span></li>
-                <li><span>Order Total :</span><span>$ {{ cart.get_total_price|floatformat:"2"}}</span></li>
+                {% if cart.coupon %}
+                 <li>
+                   <span class="text">
+                      "{{ cart.coupon.code }}"({{ cart.coupon.discount|floatformat:"2" }}% off)
+                   </span>
+                   <span class="number">
+                       -${{ cart.get_discount|floatformat:"2" }}
+                   </span>
+                 </li>
+                <li><span>Order Total :</span><span>$ {{ cart.get_total_price_after_discount|floatformat:"2" }}</span></li>
+                {% else %}
+                <li><span>Order Total :</spaon><span>$ {{ cart.get_total_price|floatformat:"2"}}</span></li>
+                {% endif %}
               </ul>
             </div><!-- /.cart__total-amount -->
           </div><!-- /.col-lg-6 -->
